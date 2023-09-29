@@ -72,3 +72,37 @@ nav ul a {
         margin: 0;
     }
 }
+
+.icons ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (min-width:768px) {
+    .icons ul li {
+        flex: 0 0 50%;
+    }
+}
+
+
+.icons ul li {
+    flex: 1;
+}
+
+.icons ul li a {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 100%;
+}
+
+.icons .icon {
+    font-size: 2rem;
+    flex: 0 0 3rem;
+}
+
+.icons .text span {
+    font-size: .8rem;
+    display: flex;
+    margin-top: .8rem;
+}
