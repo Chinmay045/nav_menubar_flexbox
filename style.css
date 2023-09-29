@@ -159,3 +159,38 @@ nav ul a {
         background-color: #ff5e62;
     }
 }
+
+.social-menu span {
+    display: none;
+}
+
+.social-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 auto;
+}
+
+
+.social-menu a::before {
+    font-family: "Font Awesome 5 Brands";
+}
+
+.social-menu a[href*='facebook.com']::before {
+    content: '\f39e';
+}
+
+.social-menu a[href*='twitter.com']::before {
+    content: '\e61b';
+}
+
+.social-menu a[href*='youtube.com']::before {
+    content: '\f167';
+}
+
+.social-menu a[href*='instagram.com']::before {
+    content: '\f16d';
+}
+
+.social-menu ul li {
+    padding: 10px 10px;
+}
