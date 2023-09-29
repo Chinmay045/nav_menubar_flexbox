@@ -17,6 +17,7 @@ body {
     background: linear-gradient(to right, #ff5e62, #ff9966);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: 'IBM Plex Serif', serif;
+    box-sizing: border-box;
 }
 
 .container {
@@ -38,7 +39,7 @@ nav ul {
 }
 
 nav ul li {
-    padding: 20px;
+    padding: 1rem;
 }
 
 nav ul li:hover {
@@ -48,54 +49,39 @@ nav ul li:hover {
 nav ul a {
     color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
+/** Menu simple **/
 .simple ul {
     display: flex;
-    justify-content: center;
-    justify-content: space-between;
     flex-direction: column;
+    justify-content: space-around;
+    /* justify-content: center; */
+    justify-content: space-between;
 }
 
 .simple ul li {
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 20px;
+    flex: 1;
 }
 
-@media (min-width:768px) {
+@media screen and (min-width:768px) {
     .simple ul {
-        justify-content: space-between;
         flex-direction: row;
     }
 
     .simple ul li {
-        margin-bottom: 0;
+        margin-bottom: 0px;
     }
 }
 
-.icons ul {
-    /* flex: 0 0 110%; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-@media (min-width:480px) {
-    .icons ul li {
-        flex: 0 0 25%;
-    }
-}
-
-@media (min-width:768px) {}
-
-.icons ul li {
-    flex: 1;
-}
-
+/* icons */
 .icons ul li a {
     display: flex;
     justify-content: center;
+    flex: 1;
 }
 
 .icons .icon {
@@ -103,48 +89,71 @@ nav ul a {
     flex: 0 0 3rem;
 }
 
+.icons .text {
+    font-size: 1.4rem;
+}
+
 .icons .text span {
-    display: flex;
-    font-size: .7rem;
+    font-size: .8rem;
     display: block;
-    margin-top: .5rem;
+    margin-top: 10px;
 }
 
-.dropdown ul {
-    display: flex;
-}
-
-@media (min-width:768px) {
-    .dropdown ul {
-        flex-direction: row;
+@media screen and (min-width:480px) {
+    .icons ul {
+        display: flex;
+        flex-wrap: wrap;
     }
 
+    .icons ul li {
+        display: flex;
+        flex: 0 0 calc(50% - 2rem);
+    }
 }
 
-.dropdown ul li {
+@media screen and (min-width:768px) {
+    .icons ul li {
+        display: flex;
+        flex: 1;
+    }
+}
+
+/** Multilevel **/
+.dropdown ul {
     display: flex;
     flex-direction: column;
 }
 
+@media screen and (min-width:768px) {
+    .dropdown ul {
+        flex-direction: row;
+    }
+}
+
+.dropdown ul li {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .dropdown ul li ul {
+    margin-top: 1rem;
     display: none;
 }
 
 .dropdown ul li:hover ul {
     display: block;
-
-
 }
 
 .dropdown ul li ul li:hover {
-    background-color: brown;
+    background-color: #ff5e62;
 }
 
-
-@media(min-width:768px) {
+@media screen and (min-width:768px) {
     .dropdown ul li {
         position: relative;
-        flex: 1 1 100%;
+        display: flex;
+        flex: 0 1 100%;
     }
 
     .dropdown ul li ul {
@@ -156,41 +165,78 @@ nav ul a {
 
     .dropdown ul li:hover ul {
         display: flex;
+        flex-wrap: wrap;
         background-color: #ff5e62;
+        margin: 0;
     }
 }
 
-.social-menu span {
+/** Social Networks **/
+.social-menu ul li span {
     display: none;
 }
 
 .social-menu ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
+    justify-content: flex-end;
+    /* justify-content: center;
+    justify-content: space-around; */
+    /* justify-content: space-between; */
     flex: 1 0 auto;
 }
 
-
-.social-menu a::before {
+.social-menu ul li a:before {
     font-family: "Font Awesome 5 Brands";
 }
 
-.social-menu a[href*='facebook.com']::before {
-    content: '\f39e';
+.social-menu ul li a[href*='facebook.com']::before {
+    content: "\f39e";
 }
 
-.social-menu a[href*='twitter.com']::before {
-    content: '\e61b';
+.social-menu ul li a[href*='twitter.com']::before {
+    content: "\f099";
 }
 
-.social-menu a[href*='youtube.com']::before {
-    content: '\f167';
+.social-menu ul li a[href*='youtube.com']::before {
+    content: "\f431";
 }
 
-.social-menu a[href*='instagram.com']::before {
-    content: '\f16d';
+.social-menu ul li a[href*='instagram.com']::before {
+    content: "\f16d";
 }
 
-.social-menu ul li {
-    padding: 10px 10px;
+.social-menu ul li a[href*='pinterest.com']::before {
+    content: "\f231 ";
+}
+
+/* Social & dropdown*/
+.navegacion-social-dropdown {
+    background-color: #3F51B5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.navegacion-social-dropdown>nav {
+    flex: 0 0 100%;
+}
+
+.navegacion-social-dropdown .social-menu {
+    order: -1;
+}
+
+@media (min-width:768px) {
+    .navegacion-social-dropdown>nav {
+        flex: 0 0 auto;
+    }
+
+    .navegacion-social-dropdown .dropdown {
+        flex: 0 0 70%;
+    }
+
+    .navegacion-social-dropdown .social-menu {
+        order: unset;
+    }
 }
