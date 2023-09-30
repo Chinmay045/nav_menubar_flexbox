@@ -196,3 +196,14 @@ nav ul a {
 .social-menu a[href*='pinterest.com']::before {
     content: '\f0d2';
 }
+
+.navigation-social-dropdown {
+    align-items: center;
+    background-color: #3F51B5;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navigation-social-dropdown .dropdown ul li {
+    flex: 1 0 auto;
+}
